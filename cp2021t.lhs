@@ -129,13 +129,13 @@
 \begin{tabular}{ll}
 \textbf{Grupo} nr. & 999 (preencher)
 \\\hline
-a11111 & Nome1 (preencher)	
+a93284 & Ana Filipa Ribeiro Murta	
 \\
-a22222 & Nome2 (preencher)	
+a93268 & Ana Paula Oliveira Henriques	
 \\
-a33333 & Nome3 (preencher)	
+a93184 & Diogo Camacho Barbosa	
 \\
-a44444 & Nome4 (preencher, se aplicável, ou apagar)	
+a93212 & Afonso Franco Ferreira	
 \end{tabular}
 \end{center}
 
