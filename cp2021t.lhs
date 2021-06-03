@@ -127,7 +127,7 @@
 
 \begin{center}\large
 \begin{tabular}{ll}
-\textbf{Grupo} nr. & 999 (preencher)
+\textbf{Grupo} nr. & 62
 \\\hline
 a93284 & Ana Filipa Ribeiro Murta	
 \\
