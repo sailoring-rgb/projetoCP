@@ -1080,7 +1080,7 @@ avg = p1.avg_aux
 \end{code}
 
 \begin{code}
-avg_aux = undefined
+avg_aux = (| [ <id, one> , <a . (id * p1),  succ.p2.(id * p2)> ] |)
 \end{code}
 Solução para árvores de tipo \LTree:
 \begin{code}
