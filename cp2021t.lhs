@@ -1080,13 +1080,13 @@ avg = p1.avg_aux
 \end{code}
 
 \begin{code}
-|avg_aux = cata (either <id, one> <a . (id * p1),  succ.p2.(id * p2)>)|
-	where a = add (id x (mul . <length, avg> ) ) / add(length x 1) . swap
+|avg_aux = cata (either (split (id) (one)) (split (a . (id >< p1))  (succ.p2.(id >< p2)) ))|
+	where a = add (id >< (mul . (split (length) (avg) ) )) / add(length >< 1) . swap
 \end{code}
 Solução para árvores de tipo \LTree:
 \begin{code}
 avgLTree = p1.cataLTree gene where
-   gene = undefined
+   gene = either ( (split (id) (one)) (split (b. (p1 >< p1)) (succ.add.(p1 >< p1))) )
 \end{code}
 
 \subsection*{Problema 5}
