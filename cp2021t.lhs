@@ -1080,7 +1080,7 @@ avg = p1.avg_aux
 \end{code}
 
 \begin{code}
-avg_aux = (| [ <id, one> , <a . (id * p1),  succ.p2.(id * p2)> ] |)
+|avg_aux = cata (either <id, one> <a . (id * p1),  succ.p2.(id * p2)>)|
 	where a = add (id x (mul . <length, avg> ) ) / add(length x 1) . swap
 \end{code}
 Solução para árvores de tipo \LTree:
