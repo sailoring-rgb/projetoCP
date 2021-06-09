@@ -22,39 +22,60 @@ recExpAr f g h j k l z = baseExpAr f g h j k l z
 
 -- Ponto 2.
 
-eval_exp = (| g |)
+eval_exp a = (| g |)
 <=>
-eval_exp . in = g . F eval_exp
+eval_exp a . in  = g . F eval_exp a
 <=>
-eval_exp . [X, num ops] = g . (f + (g + (h × (j × k) + l × z)))
+eval_exp a . [X, num ops] = g . (f + (g + (h × (j × k) + l × z)))
 <=>
-eval_exp . [X, num ops] = [g1, g2] . (f + (g + (h × (j × k) + l × z)))
+eval_exp a . [X, num ops] = [g1, g2] . (f + (g + (h × (j × k) + l × z)))
 <=>
-| eval_exp . X = g1 . f
-| eval_exp . num ops = [g3, g4] . (g + (h × (j × k) + l × z))
+| eval_exp a . X a = g1 . f
+| eval_exp a . num ops = [g3, g4] . (g + (h × (j × k) + l × z))
 <=>
-| eval_exp . X = g1 . f
-| | eval_exp . N = g3 . g
-| | eval_exp . ops = g4 . (h × (j × k) + l × z)
+| eval_exp a . X = g1 . f
+| | eval_exp a . N = g3 . g
+| | eval_exp a . ops = g4 . (h × (j × k) + l × z)
 <=>
-| eval_exp . X = g1 . f
-| | eval_exp . N = g3 . g
-| | | eval_exp . bin = g5 . (h x (j x k))
-| | | eval_exp . Un = g6 . (l x z)
+| eval_exp a . X = g1 . f
+| | eval_exp a . N = g3 . g
+| | | eval_exp a . bin = g5 . (h x (j x k))
+| | | eval_exp a . Un = g6 . (l x z)
 <=>
-| eval_exp X = g1 ( f () )
-| | eval_exp (N y) = g3 (g y)
-| | | eval_exp (bin (op, (a,b))) = g5 ( h op, (j a, k b) )
-| | | eval_exp (un (op,a)) = g6 ( l op, z a )
+| eval_exp a X = g1 ( f () )
+| | eval_exp a (N y) = g3 (g y)
+| | | eval_exp a (bin (op, (a,b))) = g5 ( h op, (j a, k b) )
+| | | eval_exp a (un (op,a)) = g6 ( l op, z a )
 <=>
-| cataExpAr (g_eval_exp X) = g1 ( f () )
-| | cataExpAr (g_eval_exp (N y)) = g3 (g y)
-| | | cataExpAr (g_eval_exp (bin (op, (a,b)))) = g5 ( h op, (j a, k b) )
-| | | cataExpAr (g_eval_exp (un (op,a))) = g6 ( l op, z a )
-<=>
+| cataExpAr (g_eval_exp a X) = g1 ( f () )
+| | cataExpAr (g_eval_exp a (N y)) = g3 (g y)
+| | | cataExpAr (g_eval_exp a (bin (op, (a,b)))) = g5 ( h op, (j a, k b) )
+| | | cataExpAr (g_eval_exp a (un (op,a))) = g6 ( l op, z a )
 
 
 
+avg [a] = a
+avg (a:x) = ( a + k (avg x) / (k + 1) ) where k = length x 
+<=>
+avg . singl a = id a
+avg . cons (a,x) = (a + k (avg x)) / (k + 1) where k = length x 
+<=>
+avg . singl = id
+avg . cons (a,x) = (a + length (avg x)) * (1/(succ (length x))
+<=>
+avg . nil = 0
+avg . cons (a,x) = (add (id x (length . avg)) (a,x)) * (1/((succ . length) x))
+<=>
+avg . nil = 0
+avg . cons (a,x) = (add (id x (length . (avg))) (a,x)) / (succ . length) x
+<=>
+avg . 
+
+
+out [x] = i1 x 
+out (x:t) = i2 (x,t)
+
+rec 
 ---------------------------------------------------------//---------------------------------------------------------
 
 
