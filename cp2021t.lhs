@@ -1077,7 +1077,7 @@ avg = p1.avg_aux
 \end{code}
 
 \begin{code}
-avg_aux = cata (either (split (id) (one)) (split (a . (id >< p1))  (succ.p2.(id >< p2)) ))
+avg_aux = (cataNat (either (split (id) (one)) (split (a . (id >< p1))  (succ.p2.(id >< p2)) )))
 	where a = add (id >< (mul . (split (length) (avg) ) )) / add(length >< 1) . swap
 \end{code}
 Solução para árvores de tipo \LTree:
