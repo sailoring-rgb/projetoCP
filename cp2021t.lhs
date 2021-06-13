@@ -1054,6 +1054,25 @@ seja a função pretendida.
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
+Os números de Catalan formam uma sequência de números naturais que ocorrem em vários problemas de contagem.
+Frequentemente, envolvem objetos definidos recursivamente.
+
+O número de Catalan é definido pela fórmula dada no enunciado.
+
+Mas também satisfaz a seguinte relação de recorrência:
+\begin{eqnarray}
+	C_0 = 1
+	C_(n+1) = \frac{2(2n+1)Cn}{n+2}
+	\label{eq:cat}
+\end{eqnarray}
+
+Esta relação de recorrência obteve-se deste modo:
+
+\begin{eqnarray}
+n = 0 => C_n = 1
+n > 0 => C_n = \sum_{i=0}^{n-1} C_(i)*C_(n-1-i)
+\end{eqnarray}
+
 \subsection*{Problema 3}
 
 \begin{code}
