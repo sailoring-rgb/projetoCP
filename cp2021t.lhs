@@ -1042,9 +1042,9 @@ ad_gen = undefined
 \subsection*{Problema 2}
 Definir
 \begin{code}
-loop = (g/f, g+4, 1+f)
+loop (cat, g, f)= (g/f, g+4, 1+f)
 inic = (1,2,2)
-prj = cat
+prj (cat, g, f) = cat
 \end{code}
 por forma a que
 \begin{code}
