@@ -1042,9 +1042,9 @@ ad_gen = undefined
 \subsection*{Problema 2}
 Definir
 \begin{code}
-loop (cat, g, f)= (g/f, g+4, 1+f)
-inic = (1,2,2)
-prj (cat, g, f) = cat
+loop(h,g,f)=(((g*h) `div` f), (g+4), (1+f))
+inic=(1,2,2)
+prj(h,g,f)=h
 \end{code}
 por forma a que
 \begin{code}
@@ -1069,9 +1069,42 @@ Mas também satisfaz a seguinte relação de recorrência:
 Esta relação de recorrência obteve-se deste modo:
 
 \begin{eqnarray}
-n = 0 => C_n = 1
-n > 0 => C_n = \sum_{i=0}^{n-1} C_(i)*C_(n-1-i)
+ catdef n = \frac{(2n)!}{(n+1)!(n!)}
+ 
+ catdef(n+1) = \frac{(2(n+1))!}{((n+1)+1)!((n+1)!)}
+             = \frac{(2*n+2)!}{((n+2)!((n+1)!)}
+             = \frac{(2*n+2)(2*n+1)(2*n)!}{((n+2)(n+1)!((n+1)(n!))}
+             = \frac{(2*n+2)(2*n+1)}{(n+2)(n+1)!} * \frac{(2*n)!}{(n+1)!n!}
+             = \frac{2*(n+1)(2*n+1)}{(n+2)(n+1)} * \frac{(2*n)!}{(n+1)!n!}
+             = \frac{2*(2*n+1)}{n+2} * catdef n
 \end{eqnarray}
+
+Da função catdef derivam-se três funções mutuamente recursivas:
+
+\begin{eqnarray}
+ h 0 = 1
+ h (n+1) = \fraq{(g n)*(h n)}{f n}
+ g 0 = 2
+ g (n+1) = g n + 4
+ f 0 = 2
+ f (n+1) = 1 + f n
+\end{eqnarray}
+
+Sendo
+
+\begin{eqnarray}
+ g n = 2(2*n + 1) => g (n+1) = g n + 4
+ f n = n + 2 => f (n+1) = 1 + f n
+\end{eqnarray}
+
+Logo,
+\begin{eqnarray}
+cat = prj . (for loop inic) where
+   loop(h,g,f)=(((g*h) `div` f), (g+4), (1+f))
+   inic=(1,2,2)
+   prj(h,g,f)=h
+\end{eqnarray}
+
 
 \subsection*{Problema 3}
 
