@@ -3,7 +3,7 @@
 
 Projeto de Cálculo de Programas
 
-Classificação do projeto: 11/20
+Classificação do projeto: 11/20 :confounded:
 
 # Autores
 
