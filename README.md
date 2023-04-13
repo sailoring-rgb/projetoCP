@@ -1,11 +1,11 @@
 
 # CP
 
-Projeto de Cálculo de Programas
+Project accomplished in the scope of <b><i>Calculus of Programs 20/21</i></b>
 
-Classificação do projeto: 11/20 :confounded:
+Final Classification: 11/20 :confounded:
 
-# Autores
+# Authors
 
-- Ana Murta (@AnaMurta10)
-- Ana Henriques (@AnaHenriques01)
+- <a href="https://github.com/AnaMurta10">Ana Murta</a>
+- <a href="https://github.com/sailoring-rgb">Ana Henriques</a>
